@@ -5,5 +5,7 @@
 @endsection
 
 @section('content')
-
+    <section id="content">
+        @yield('center-column')
+    </section>
 @endsection
