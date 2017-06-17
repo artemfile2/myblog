@@ -65,6 +65,9 @@ Route::post('/register', 'AuthController@registerPost')
        ->name('site.auth.registerPost');
 
 
-Route::get('/admin.admin', function () {
+Route::get('/admin', 'DBController@getUsers')
+    ->name('site.DB.getUsers');
+
+/*Route::get('/admin', function () {
     return view('admin');
-});
+});*/
