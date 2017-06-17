@@ -5,9 +5,9 @@
 @endsection
 
 @section('left-column')
-    @include('forms.newsContent')
+    @include('forms.about')
 @endsection
 
 @section('right-column')
-    @include('forms.posts')
+    @include('parts.infoContact')
 @endsection

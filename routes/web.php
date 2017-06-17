@@ -20,36 +20,39 @@ Route::get('/', 'MainController@index')
 
 Route::group(['prefix'=>'articles'], function ()
 {
-    Route::get('/', 'PagesController@articles');
+    Route::get('/', 'MainController@articles');
 
     /*
     * добавлять запись в блог*/
-    Route::get('/add/{id?}', 'PagesController@add');
+    Route::get('/add/{id?}', 'MainController@add');
 
     /*
     * редактировать запись в блоге*/
-    Route::get('/edit/{id?}', 'PagesController@edit');
+    Route::get('/edit/{id?}', 'MainController@edit');
 
     /*
      * удалять запись*/
-    Route::get('/delete/{id?}', 'PagesController@delete');
+    Route::get('/delete/{id?}', 'MainController@delete');
 });
 
 Route::group(['prefix'=>'news'], function (){
 
-    Route::get('/', function () {
-        return view('pages.news', [
-            'title'=>' News'
-        ]);
-    });
+    Route::get('/', 'MainController@news');
 
 });
 
-Route::get('/about', function () {
-    return view('pages.about', [
+/*Route::get('/about', function () {
+    return view('layots.contacts', [
         'title'=>' About'
     ]);
-});
+});*/
+
+Route::get('/about', 'MainController@about');
+
+Route::get('/login', 'MainController@login');
+
+Route::get('/register', 'MainController@register');
+
 
 Route::get('/admin.admin', function () {
     return view('admin');

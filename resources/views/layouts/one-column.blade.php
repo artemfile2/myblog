@@ -6,6 +6,12 @@
 
 @section('content')
     <section id="content">
+        <div class="wrap">
         @yield('center-column')
+        </div>>
     </section>
+@endsection
+
+@section('footer-copyrights')
+    @include('parts.footer-copyrights')
 @endsection

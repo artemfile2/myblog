@@ -15,10 +15,10 @@ body {
 a {text-decoration:none; cursor:pointer;}
 a:hover {text-decoration:none;}
 
-a.button {background:url(../images/button.png) 0 0 repeat-x; border-bottom:#3f3b3b 1px solid; color:#fff; font-size:12px; line-height:15px; padding:12px 30px 12px 30px; display:inline-block; border-radius: 6px; }
+a.button {background:url(../images/button.png) 0 0 repeat-x; border-bottom:#3f3b3b 1px solid; color:#fff; font-size:12px; line-height:15px; padding:12px 30px 12px 30px; display:inline-block; border-radius: 3px; }
 a.button:hover {background:#000; }
 
-a.button-1 {background:url(../images/button-1.jpg) 0 0 repeat-x; border-bottom:#fff 1px solid; border-left:#cfd0d2 1px solid; border-right:#cfd0d2 1px solid; color:#8f8b8c; font-size:12px; line-height:15px; padding:12px 29px 12px 29px; display:inline-block; border-radius: 7px; }
+a.button-1 {background:url(../images/button-1.jpg) 0 0 repeat-x; border-bottom:#fff 1px solid; border-left:#cfd0d2 1px solid; border-right:#cfd0d2 1px solid; color:#8f8b8c; font-size:12px; line-height:15px; padding:12px 29px 12px 29px; display:inline-block; border-radius: 3px; }
 a.button-1:hover {background:#8b8c8d; color:#fff; }
 
 a.button-2 {background:#e88800; color:#fff; font-size:12px; line-height:15px; font-weight:bold; padding:7px 19px 7px 19px; display:inline-block; }
@@ -29,6 +29,8 @@ a.link:hover {text-decoration:underline;}
 
 a.link-2 { background:url(../images/link-2.png) 0 no-repeat; padding-left:16px; display:inline-block; text-decoration:none; cursor:pointer; color:#e88800; }
 a.link-2:hover {text-decoration:underline;}
+
+.data-link {background:url(../images/link-2.png) 0 no-repeat; padding-left:16px; display:inline-block; color:#e88800; }
 
 .color-1 { font-size:18px; line-height:24px; color:#e37700;}
 .color-2 { color:#1f1919;}
@@ -82,14 +84,14 @@ h1 {float:left; margin:46px 0 0 42px;}
 .tooltips a:hover img {opacity:.7;}
 
 .nav-shadow {background:url(../images/nav-shadow.png) 0 0 no-repeat; padding-top:10px; margin:24px 0px 0px 0px; position:relative; z-index:100;}
-.nav-shadow>div {background:#e57c00; border-radius: 7px; padding-bottom:4px; box-shadow:0 3px 2px #201a1a; }
-nav { background:url(../images/nav.jpg) 0 0 repeat-x;  border-radius: 7px;  min-height:70px;}
+.nav-shadow>div {background:#e57c00; border-radius: 3px; padding-bottom:4px; box-shadow:0 3px 2px #201a1a; }
+nav { background:url(../images/nav.jpg) 0 0 repeat-x;  border-radius: 3px;  min-height:70px;}
 
 ul.menu {overflow:hidden;}
 ul.menu li {float: left; line-height:24px; background:url(../images/menu-li.jpg) 0 0 no-repeat; margin:10px 0 11px 0; padding: 13px 47px 12px 47px; }
 ul.menu li:first-child {background:transparent;}
 ul.menu li a {font-size:18px; line-height:24px; color:#0f0c0c; display:inline-block; }
-ul.menu li a:hover, ul.menu li.current a {color: #8f5720;}
+ul.menu li a:hover, ul.menu li.active a {color: #8f5720;}
 ul.menu li:last-child {float: right}
 
 /*********************************content*************************************/
@@ -98,7 +100,7 @@ ul.menu li:last-child {float: right}
 .header-content {width:100%; background:url(../images/header-content.jpg) center bottom repeat; margin:0 auto; position:relative; z-index:99; margin-top:-25px; padding-bottom:36px;}
 .header-subpages {padding-bottom:65px !important;}
 
-.img-radius {border-radius:7px;}
+.img-radius {border-radius:3px;}
 .border-1 {background:url(../images/border-1.jpg) right 0 repeat-y;}
 .border-2 {background:url(../images/border-2.gif) right 0 repeat-y;}
 

@@ -5,5 +5,5 @@
 @endsection
 
 @section('center-column')
-    @include('forms.articlesContent')
+    @include('forms.newsContent')
 @endsection
