@@ -1,15 +1,16 @@
 <div class="wrap">
-
     <div class="wrap-login">
-        <form class="login in" methos="POST" action="{{ route('site.auth.loginPost') }}">
+        <form class="login in" method="post" action="{{ route('site.auth.loginPost') }}">
             {{ csrf_field() }}
-            <h2 class="h1-login">Войти</h2>
+            <h2 class="h1-login">Авторизация</h2>
             <fieldset class="inputs">
-                <input class="username" placeholder="Логин" autofocus="" required="" type="text">
-                <input class="password" placeholder="Пароль" required="" type="password">
+                <label for="inputUser" class="">Имя</label>
+                <input class="username" name="user" id="inputUser" placeholder="Логин" autofocus required type="text">
+                <label for="inputPass" class="">Пароль</label>
+                <input class="password" name="pass" id="inputPass" placeholder="Пароль" required type="password">
             </fieldset>
             <fieldset class="actions">
-                <input class="submit in" value="Войти" type="submit">
+                <button class="submit in" type="submit">Войти</button>
                     <a href="/register">Зарегистрироваться</a>
             </fieldset>
         </form>

@@ -15,9 +15,8 @@ class AuthController extends Controller
     }
 
     public function loginPost(Request $request){
-
+        dump($request->all());
         debug($request->all());
-
     }
 
     public function register()
@@ -27,8 +26,14 @@ class AuthController extends Controller
     }
 
     public function registerPost(Request $request){
-
+        echo 'zxc';
         debug($request->all());
 
+        $this->validate($request, [
+            'user' => 'required|max:10',
+            'email' => 'required|email|unique:users|max:20',
+            'pass' => 'required|max:11|min:3',
+            'pass2' => 'required|same:pass',
+        ]);
     }
 }

@@ -62,7 +62,7 @@ Route::post('/login', 'AuthController@loginPost')
 Route::get('/register', 'AuthController@register')
        ->name('site.auth.register');
 Route::post('/register', 'AuthController@registerPost')
-    ->name('site.auth.registerPost');
+       ->name('site.auth.registerPost');
 
 
 Route::get('/admin.admin', function () {

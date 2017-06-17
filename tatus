@@ -1,0 +1,29 @@
+[33mcommit 22a681bfe8c9848358e8bda062f1fa4d4a60f26f[m
+Author: artem <qzip@yandex.ru>
+Date:   Sat Jun 17 15:10:05 2017 +0300
+
+    Install BedugBar
+
+[33mcommit 45ce497d58644cdc0b374b39c25a5d945b9c34b6[m
+Author: artem <qzip@yandex.ru>
+Date:   Sat Jun 17 13:42:55 2017 +0300
+
+    Add new teplates and many forms
+     - base page
+     - news page
+     - articles page
+     - about page
+     - login and register page
+     all working normaly
+
+[33mcommit c1c41b82c70c5f066b3fe9699a1354c428852eb9[m
+Author: artem <qzip@yandex.ru>
+Date:   Mon May 29 07:56:37 2017 +0300
+
+    added templates and created a new architecture
+
+[33mcommit ffb8cf7e3b5f0d4e4a5f0cc8f12e25662bf0832d[m
+Author: artem <qzip@yandex.ru>
+Date:   Sun May 28 21:14:03 2017 +0300
+
+    Init commit
