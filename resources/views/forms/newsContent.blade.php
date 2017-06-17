@@ -14,7 +14,7 @@
     <a href="#" class="button-1 top-3">Читать</a>
 </div>
 
-{!! dump($key) !!}
+<!--{!! dump($key) !!}
 
 <ul>
 @foreach($key as $value)
@@ -22,4 +22,4 @@
         {{$value}}
     </li>
 @endforeach
-</ul>
+</ul>-->

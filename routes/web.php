@@ -16,11 +16,12 @@
 });*/
 
 Route::get('/', 'MainController@index')
-    ->name('site.index');
+       ->name('site.main.index');
 
 Route::group(['prefix'=>'articles'], function ()
 {
-    Route::get('/', 'MainController@articles');
+    Route::get('/', 'MainController@articles')
+           ->name('site.main.articles');
 
     /*
     * добавлять запись в блог*/
@@ -37,7 +38,8 @@ Route::group(['prefix'=>'articles'], function ()
 
 Route::group(['prefix'=>'news'], function (){
 
-    Route::get('/', 'MainController@news');
+    Route::get('/', 'MainController@news')
+           ->name('site.main.news');
 
 });
 
@@ -47,11 +49,20 @@ Route::group(['prefix'=>'news'], function (){
     ]);
 });*/
 
-Route::get('/about', 'MainController@about');
+Route::get('/about', 'MainController@about')
+       ->name('site.main.about');
 
-Route::get('/login', 'MainController@login');
+/*-----------------------------------------*/
 
-Route::get('/register', 'MainController@register');
+Route::get('/login', 'AuthController@login')
+       ->name('site.auth.login');
+Route::post('/login', 'AuthController@loginPost')
+       ->name('site.auth.loginPost');
+
+Route::get('/register', 'AuthController@register')
+       ->name('site.auth.register');
+Route::post('/register', 'AuthController@registerPost')
+    ->name('site.auth.registerPost');
 
 
 Route::get('/admin.admin', function () {

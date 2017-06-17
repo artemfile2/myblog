@@ -31,15 +31,4 @@ class MainController extends Controller
             ->withTitle('Контакты');
     }
 
-    public function login()
-    {
-        return view('layouts.logins')
-            ->withTitle('Вход на сайт');
-    }
-
-    public function register()
-    {
-        return view('layouts.registration')
-            ->withTitle('Регистрация на сайте');
-    }
 }
