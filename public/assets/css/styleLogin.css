@@ -20,11 +20,10 @@
 	background-image: -ms-linear-gradient(top, #fff, #eee);
 	background-image: -o-linear-gradient(top, #fff, #eee);
 	background-image: linear-gradient(top, #fff, #eee);
-	height: 200px;
+	height: auto;
 	width: 400px;
 	margin: auto;
 	padding: 30px;
-	/*position: absolute;*/
 	top: 50%;
 	left: 50%;
 	z-index: 0;
@@ -54,13 +53,13 @@
 			0 7px 0 rgba(0, 0, 0, .2);
 }
 
-.login.in{
+/*.login.in{
 	height: 250px;
 }
 
 .login.reg{
 	height: 410px;
-}
+}*/
 
 .login:before{
 content: '';
