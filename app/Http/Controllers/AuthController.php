@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -17,6 +19,13 @@ class AuthController extends Controller
     public function loginPost(Request $request){
         dump($request->all());
         debug($request->all());
+
+        $authResult = Auth::attempt([
+            'email' => $request->input('email'),
+            'pass' => $request->input('pass'),
+        ]);
+
+        dump($authResult);
     }
 
     public function register()
@@ -26,7 +35,6 @@ class AuthController extends Controller
     }
 
     public function registerPost(Request $request){
-        echo 'zxc';
         debug($request->all());
 
         $this->validate($request, [
@@ -35,5 +43,18 @@ class AuthController extends Controller
             'pass' => 'required|max:11|min:3',
             'pass2' => 'required|same:pass',
         ]);
+
+        DB::table('users')->insert([
+            'user' => $request->input('user'),
+            'email' => $request->input('email'),
+            'pass' => bcrypt($request->input('pass')),
+            'type' => 1,
+            //'datareg' => Carbon::createFromTimestamp(time())->format('Y-d-m H:i:s'),
+        ]);
+
+        $userName = $request->input('user');
+        return redirect()
+               ->route('site.main.index')
+               ->with('userName', $userName.' qqq');
     }
 }

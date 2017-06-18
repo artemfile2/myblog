@@ -5,7 +5,15 @@
                 <a href="/"><img src="assets/images/logo.png" alt=""></a>
             </h1>
             ‪
-            <div class="slogan">My blog test Laravel!</div>
+            <div class="slogan">
+                My blog test Laravel!
+                Hello
+                @if (session('userName'))
+                    {{ session('userName') }}
+                @else
+                    Гость
+                @endif
+            </div>
 
             @include('parts.social')
         </div>
