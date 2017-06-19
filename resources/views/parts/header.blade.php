@@ -7,12 +7,15 @@
             ‪
             <div class="slogan">
                 My blog test Laravel!
+                <br>
                 Hello
-                @if (session('userName'))
-                    {{ session('userName') }}
+
+                @if (Auth::check())
+                    {{ Auth::user()->user }}
                 @else
                     Гость
                 @endif
+
             </div>
 
             @include('parts.social')

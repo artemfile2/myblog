@@ -17,15 +17,20 @@ class AuthController extends Controller
     }
 
     public function loginPost(Request $request){
-        dump($request->all());
-        debug($request->all());
+        /*dump($request->all());
+        debug($request->all());*/
 
         $authResult = Auth::attempt([
             'email' => $request->input('email'),
-            'pass' => $request->input('pass'),
-        ]);
+            'password' => $request->input('pass'),
+        ], true);
 
-        dump($authResult);
+        //dump($authResult);
+
+        if ($authResult) {
+            return redirect()
+                ->route('site.main.index');
+        }
     }
 
     public function register()
@@ -47,8 +52,7 @@ class AuthController extends Controller
         DB::table('users')->insert([
             'user' => $request->input('user'),
             'email' => $request->input('email'),
-            'pass' => bcrypt($request->input('pass')),
-            'type' => 1,
+            'password' => bcrypt($request->input('pass')),
             //'datareg' => Carbon::createFromTimestamp(time())->format('Y-d-m H:i:s'),
         ]);
 
@@ -56,5 +60,14 @@ class AuthController extends Controller
         return redirect()
                ->route('site.main.index')
                ->with('userName', $userName.' qqq');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        /*return redirect()
+               ->route('site.main.index');*/
+
     }
 }

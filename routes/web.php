@@ -64,10 +64,9 @@ Route::get('/register', 'AuthController@register')
 Route::post('/register', 'AuthController@registerPost')
        ->name('site.auth.registerPost');
 
+Route::post('/logout', 'AuthController@logout')
+    ->name('site.auth.logout');
+
 
 Route::get('/admin', 'DBController@getUsers')
     ->name('site.DB.getUsers');
-
-/*Route::get('/admin', function () {
-    return view('admin');
-});*/

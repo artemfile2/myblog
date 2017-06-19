@@ -15,7 +15,11 @@
                     <a href="/about">Контакты</a>
                 </li>
                 <li class="{{Request::path()=='login' ? 'active' : ''}}">
-                    <a href="/login">Войти</a>
+                    @if (Auth::check())
+                        <a href="{{ route('site.auth.logout') }}"> Выход </a>
+                    @else
+                        <a href="/login">Войти</a>
+                    @endif
                 </li>
             </ul>
         </nav>
