@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    //
 
+    /*
+     *    
+     */
     public function login()
     {
         return view('layouts.logins')
@@ -17,15 +19,11 @@ class AuthController extends Controller
     }
 
     public function loginPost(Request $request){
-        /*dump($request->all());
-        debug($request->all());*/
 
         $authResult = Auth::attempt([
             'email' => $request->input('email'),
             'password' => $request->input('pass'),
         ], true);
-
-        //dump($authResult);
 
         if ($authResult) {
             return redirect()
@@ -50,24 +48,23 @@ class AuthController extends Controller
         ]);
 
         DB::table('users')->insert([
-            'user' => $request->input('user'),
+            'name' => $request->input('user'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('pass')),
-            //'datareg' => Carbon::createFromTimestamp(time())->format('Y-d-m H:i:s'),
         ]);
 
         $userName = $request->input('user');
         return redirect()
                ->route('site.main.index')
-               ->with('userName', $userName.' qqq');
+               ->with('userName', $userName);
     }
 
     public function logout()
     {
         Auth::logout();
 
-        /*return redirect()
-               ->route('site.main.index');*/
+        return redirect()
+               ->route('site.main.index');
 
     }
 }

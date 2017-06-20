@@ -11,9 +11,9 @@
                 Hello
 
                 @if (Auth::check())
-                    {{ Auth::user()->user }}
+                    <b> {{ Auth::user()->user }}</b>
                 @else
-                    Гость
+                    <b>Гость</b>
                 @endif
 
             </div>

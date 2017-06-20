@@ -11,9 +11,6 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('layouts.base');
-});*/
 
 Route::get('/', 'MainController@index')
        ->name('site.main.index');
@@ -43,12 +40,6 @@ Route::group(['prefix'=>'news'], function (){
 
 });
 
-/*Route::get('/about', function () {
-    return view('layots.contacts', [
-        'title'=>' About'
-    ]);
-});*/
-
 Route::get('/about', 'MainController@about')
        ->name('site.main.about');
 
@@ -64,9 +55,10 @@ Route::get('/register', 'AuthController@register')
 Route::post('/register', 'AuthController@registerPost')
        ->name('site.auth.registerPost');
 
-Route::post('/logout', 'AuthController@logout')
+Route::get('/logout', 'AuthController@logout')
     ->name('site.auth.logout');
 
 
 Route::get('/admin', 'DBController@getUsers')
     ->name('site.DB.getUsers');
+
