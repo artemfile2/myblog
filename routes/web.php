@@ -15,21 +15,36 @@
 Route::get('/', 'MainController@index')
        ->name('site.main.index');
 
+/*
+ * работа со статьями
+ */
 Route::group(['prefix'=>'articles'], function ()
 {
+    /*
+     * получаю список всех статей
+     */
     Route::get('/', 'MainController@articles')
            ->name('site.main.articles');
 
     /*
-    * добавлять запись в блог*/
+     * получаю выбранную статью
+     */
+    Route::get('/article/{idArticle?}', 'MainController@article')
+           ->name('site.main.article');
+
+    /*
+     * добавлять запись в блог
+     */
     Route::get('/add/{id?}', 'MainController@add');
 
     /*
-    * редактировать запись в блоге*/
+     * редактировать запись в блоге
+     */
     Route::get('/edit/{id?}', 'MainController@edit');
 
     /*
-     * удалять запись*/
+     * удалять запись
+     */
     Route::get('/delete/{id?}', 'MainController@delete');
 });
 
@@ -59,6 +74,8 @@ Route::get('/logout', 'AuthController@logout')
     ->name('site.auth.logout');
 
 
+
+/* tests*/
 Route::get('/admin', 'DBController@getUsers')
     ->name('site.DB.getUsers');
 

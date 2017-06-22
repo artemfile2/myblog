@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -15,8 +16,20 @@ class MainController extends Controller
 
     public function articles()
     {
+        $articles = Article::all();
+
         return view('layouts.secondary')
-            ->withTitle('Статьи');
+            ->withTitle('Статьи')
+            ->withArticles($articles);
+    }
+
+    public function article($idArticle)
+    {
+        $article = Article::find($idArticle);
+
+        return view('layouts.article')
+            ->withTitle('Статья')
+            ->withArticle($article);
     }
 
     public function news()

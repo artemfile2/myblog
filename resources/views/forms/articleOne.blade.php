@@ -1,6 +1,5 @@
-<h2 class="p2">Статьи</h2>
+<h2 class="p2">Статья</h2>
 
-    @foreach($articles as $article)
         <div class="wrap line">
             <p class="data-link">
                 Дата {{ $article->created_at }}
@@ -12,6 +11,8 @@
                 {{ $article->text }}
             </p>
 
-            <a href="articles/article/{{ $article->id }}" class="button-1 top-3">Читать</a>
+            <a href="#" class="button-2 top-3">Редактировать</a>
+            <a href="#" class="button-2 top-3">Удалить</a>
+            <br><br>
+            <a href="{{ route('site.main.articles') }}" class="button-1 top-3">Назад</a>
         </div>
-    @endforeach

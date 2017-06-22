@@ -1,4 +1,4 @@
-<h2 class="p3">Новости</h2>
+<h2 class="p2">Новости</h2>
 
 <div class="wrap">
     <img src="assets/images/page1-img4.png" alt="" class="img-indent img-radius">

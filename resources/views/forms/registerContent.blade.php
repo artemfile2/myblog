@@ -38,7 +38,7 @@
             </fieldset>
             <fieldset class="actions">
                 <input class="submit reg" value="Зарегистрироваться" type="submit">
-                    <a href="">Очистить</a>
+                    <a href="{{ route('site.auth.register') }}">Очистить</a>
             </fieldset>
         </form>
     </div>

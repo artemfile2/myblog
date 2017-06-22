@@ -6,12 +6,12 @@
             </h1>
             ‪
             <div class="slogan">
+
                 My blog test Laravel!
                 <br>
                 Hello
-
                 @if (Auth::check())
-                    <b> {{ Auth::user()->user }}</b>
+                    <b class="authName"> {{ Auth::user()->name }}</b>
                 @else
                     <b>Гость</b>
                 @endif

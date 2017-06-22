@@ -53,10 +53,8 @@ class AuthController extends Controller
             'password' => bcrypt($request->input('pass')),
         ]);
 
-        $userName = $request->input('user');
         return redirect()
-               ->route('site.main.index')
-               ->with('userName', $userName);
+               ->route('site.main.index');
     }
 
     public function logout()
@@ -67,4 +65,5 @@ class AuthController extends Controller
                ->route('site.main.index');
 
     }
+
 }

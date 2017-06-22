@@ -156,6 +156,13 @@ box-shadow: 0 0 0 1px #e8c291 inset;
 	color: #eb6352;
 }
 
+.authName{
+	color: #e88800;
+	font-size: medium;
+	border: 1px solid #10e424;
+	border-radius: 1px;
+}
+
 .actions{
 margin: 25px 0 0 0;
 }

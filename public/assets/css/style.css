@@ -50,8 +50,19 @@ ul.list-2 li a:hover {text-decoration:underline;}
 /******************************************************************/
 .clear {clear:both; line-height:0; font-size:0; width:100%;}
 .wrapper {width:100%; overflow:hidden; position:relative}
-.wrap {overflow:hidden; position:relative}
-.extra-wrap {overflow:hidden;}
+
+.wrap {
+	overflow:hidden;
+	position:relative;
+	padding-bottom: 20px;
+}
+
+.extra-wrap {
+	overflow:hidden;
+	color: #8f8b8c;
+	font-size: large;
+}
+
 .fleft {float:left;}
 .fright {float:right;}
 .img-indent {float:left; margin:0 40px 0px 0;}	
@@ -68,10 +79,11 @@ ul.list-2 li a:hover {text-decoration:underline;}
 .bot-0 {padding-bottom:0 !important; margin-bottom:0 !important;}
 
 .p1 {padding-bottom:22px;}
-.p2 {padding-bottom:13px;}
-.p3 {padding-bottom:15px;}
-.p4 {padding-bottom:11px;}
-.p5 {padding-bottom:20px;}
+.p2 {
+	padding-bottom:20px;
+	color: #e57c00;
+}
+
 
 /*********************************header*************************************/
 header {width:100%; background:url(../images/header.jpg) 0 0 repeat; margin:0 auto; z-index:101; position:relative; z-index:100;}
@@ -96,6 +108,14 @@ ul.menu li:last-child {float: right}
 
 /*********************************content*************************************/
 #content { background:#edeef0; width:100%;  padding:30px 0 50px 0;}
+
+.title{
+	color: #4e4e4e;
+	font-size: x-large;
+	border-bottom: 1px solid #8f5720;
+	float: right;
+	margin-right: 20px;
+}
 .content-subpages {padding-top:25px !important;}
 .header-content {width:100%; background:url(../images/header-content.jpg) center bottom repeat; margin:0 auto; position:relative; z-index:99; margin-top:-25px; padding-bottom:36px;}
 .header-subpages {padding-bottom:65px !important;}
@@ -118,7 +138,16 @@ ul.menu li:last-child {float: right}
 .col-1 ul {width:240px;}
 .col-1 ul:first-child {margin-right:41px;}
 .block-2 p.color-2 {margin:7px 0 11px 0;}
-.block-3>div.wrap {float:left; width:260px; margin-right:40px;}
+
+.block-3>div.wrap {
+	float:left;
+	width:260px;
+	margin-right:40px;
+}
+
+.wrap .line{
+	border-top: 3px dotted #3f687e;
+}
 
 blockquote {color:#e88800; padding-left:15px; display:inline-block;}
 
