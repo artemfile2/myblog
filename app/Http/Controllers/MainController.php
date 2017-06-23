@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use App\Models\Events;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -12,10 +12,12 @@ class MainController extends Controller
     public function index()
     {
         $articles = Article::all();
+        $news = News::all();
 
         return view('layouts.primary')
             ->withTitle('Главная')
-            ->withArticles($articles);
+            ->withArticles($articles)
+            ->withNews($news);
     }
 
     public function articles()
@@ -38,7 +40,7 @@ class MainController extends Controller
 
     public function news()
     {
-        $news = Events::all();
+        $news = News::all();
 
         return view('layouts.news')
             ->withTitle('Новости сайта')

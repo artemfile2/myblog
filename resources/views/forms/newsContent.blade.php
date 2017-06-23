@@ -11,7 +11,7 @@
                     {{ $event->text }}
                 </p>
 
-                <a href="#" class="button-1 top-3">Читать</a>
+                <a href="{{ $event->id }}" class="button-1 top-3">Читать</a>
             </div>
         @endforeach
     @else
