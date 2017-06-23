@@ -48,13 +48,20 @@ Route::group(['prefix'=>'articles'], function ()
     Route::get('/delete/{id?}', 'MainController@delete');
 });
 
+/*
+ * работа с новостями
+ */
 Route::group(['prefix'=>'news'], function (){
 
     Route::get('/', 'MainController@news')
            ->name('site.main.news');
 
+    /*Route::get('/', 'MainController@news')
+        ->name('site.main.news');*/
+
 });
 
+/******************************************/
 Route::get('/about', 'MainController@about')
        ->name('site.main.about');
 

@@ -11,7 +11,7 @@
                 <li class="{{Request::path()=='articles' ? 'active' : ''}}">
                     <a href="{{ route('site.main.articles') }}">Статьи</a>
                 </li>
-                <li class="{{Request::path()=='contacts' ? 'active' : ''}}">
+                <li class="{{Request::path()=='about' ? 'active' : ''}}">
                     <a href="{{ route('site.main.about') }}">Контакты</a>
                 </li>
                 <li class="{{Request::path()=='login' ? 'active' : ''}}">
