@@ -22,7 +22,8 @@ class MainController extends Controller
 
     public function articles()
     {
-        $articles = Article::all();
+        $articles = Article::all()
+                    ->sortByDesc('created_at');
 
         return view('layouts.secondary')
             ->withTitle('Статьи')
@@ -31,11 +32,12 @@ class MainController extends Controller
 
     public function article($idArticle)
     {
-        $article = Article::find($idArticle);
+        $article = Article::findOrFail($idArticle);
 
-        return view('layouts.article')
-            ->withTitle('Статья')
-            ->withArticle($article);
+        return view('layouts.article', [
+            'title' => 'Статья '. $article->title,
+            'article' => $article,
+        ]);
     }
 
     public function news()

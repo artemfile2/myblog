@@ -35,7 +35,10 @@ Route::group(['prefix'=>'articles'], function ()
     /*
      * добавлять запись в блог
      */
-    Route::get('/add/{id?}', 'MainController@add');
+    Route::get('/add', 'DBController@add')
+           ->name('site.db.add');
+    Route::post('/add', 'DBController@addPost')
+           ->name('site.db.addPost');
 
     /*
      * редактировать запись в блоге

@@ -11,8 +11,10 @@
                 {{ $article->text }}
             </p>
 
-            <a href="#" class="button-2 top-3">Редактировать</a>
-            <a href="#" class="button-2 top-3">Удалить</a>
+            @if ( Auth::check() )
+                <a href="#" class="button-2 top-3">Редактировать</a>
+                <a href="#" class="button-2 top-3">Удалить</a>
+            @endif
             <br><br>
             <a href="{{ route('site.main.articles') }}" class="button-1 top-3">Назад</a>
         </div>
