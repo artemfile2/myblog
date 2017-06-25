@@ -1,11 +1,23 @@
 <h2 class="p2">Статьи</h2>
-<a href="#" class="link-2">29.02.2017</a>
-<p class="p4">At vero eos et accusam et justo duo dolores et ea rebum.
-    Stet clita kasd gubergren, no sea takimata sanctus.</p>
-<a href="#" class="link-2">27.03.2017</a>
-<p class="p4">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-    consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</p>
-<a href="#" class="link-2">22.04.2017</a>
-<p>Onvidunt ut labore dolore magna aliquym erat, sed diam voluptua
-    vero eos accusam et justo duo dolores.</p>
-<a href="#" class="button-1 top-1">Читать всё</a>
+@if (count($articles) > 0)
+    @foreach($articles as $article)
+        <div class="wrap line">
+            <a href="articles/article/{{ $article->id }}" class="top-3">
+                <p class="title-Post">
+                    {{ $article->title }}
+                </p>
+                <p class="text-Post">
+                    {{ $article->text }}
+                </p>
+            </a>
+        </div>
+    @endforeach
+@else
+    <div class="wrap line">
+        <p class="data-link">
+            Статей нет и не будет, но вы держитесь!!!
+        </p>
+    </div>
+@endif
+
+<a href="{{ route('site.main.articles') }}" class="button-1 top-1">Читать всё</a>

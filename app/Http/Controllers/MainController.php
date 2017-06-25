@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -9,20 +11,42 @@ class MainController extends Controller
 
     public function index()
     {
+        $articles = Article::all();
+        $news = News::all();
+
         return view('layouts.primary')
-            ->withTitle('Главная');
+            ->withTitle('Главная')
+            ->withArticles($articles)
+            ->withNews($news);
     }
 
     public function articles()
     {
+        $articles = Article::all()
+                    ->sortByDesc('created_at');
+
         return view('layouts.secondary')
-            ->withTitle('Статьи');
+            ->withTitle('Статьи')
+            ->withArticles($articles);
+    }
+
+    public function article($idArticle)
+    {
+        $article = Article::findOrFail($idArticle);
+
+        return view('layouts.article', [
+            'title' => 'Статья '. $article->title,
+            'article' => $article,
+        ]);
     }
 
     public function news()
     {
+        $news = News::all();
+
         return view('layouts.news')
-            ->withTitle('Новости сайта');
+            ->withTitle('Новости сайта')
+            ->withNews($news);
     }
 
     public function about()

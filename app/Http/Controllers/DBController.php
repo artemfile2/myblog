@@ -2,31 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class DBController extends Controller
 {
-    //
 
-    public function getUsers()
+    public function add()
     {
-        $count = DB::table('users')
-                 ->count();
-
-        $user = DB::table('users')
-            ->where('user', 'like','%ет%')
-            ->get();
-
-
-       /* dump($user);*/
-
-        foreach ($user as $value)
-        {
-            dump($value->user);
-        }
-
-        return "Количество записей в таблице $count";
+        return view('layouts.adding', [
+            'title' => 'Добавить новую статью'
+        ]);
     }
 
+    public function addPost(Request $request)
+    {
+        $article = new Article;
+
+        $article->fill([
+            'title' => $request->title,
+            'text' => $request->text,
+            'idUser' => Auth::user()->id,
+        ])->save();
+
+        return redirect()
+               ->route('site.main.articles');
+    }
+
+
+    public function delete($idArticle)
+    {
+        $article = Article::findOrFail($idArticle)
+                   ->delete();
+
+        return redirect()
+            ->route('site.main.articles');
+    }
 }

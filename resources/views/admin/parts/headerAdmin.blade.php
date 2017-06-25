@@ -9,7 +9,7 @@
 
                 My blog test Laravel!
                 <br>
-                Hello
+                ADMIN PANEL
                 @if (Auth::check())
                     <b class="authName"> {{ Auth::user()->name }}</b>
                 @else
@@ -18,10 +18,11 @@
 
             </div>
 
-            @include('parts.social')
         </div>
 
-        @include('parts.navigationmenu')
+        @if (Auth::check())
+            @include('admin.parts.menuAdmin')
+        @endif
 
     </div>
 

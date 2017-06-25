@@ -11,49 +11,69 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('layouts.base');
-});*/
 
 Route::get('/', 'MainController@index')
        ->name('site.main.index');
 
+/*
+ * работа со статьями
+ */
 Route::group(['prefix'=>'articles'], function ()
 {
+    /*
+     * получаю список всех статей
+     */
     Route::get('/', 'MainController@articles')
            ->name('site.main.articles');
 
     /*
-    * добавлять запись в блог*/
-    Route::get('/add/{id?}', 'MainController@add');
+     * получаю выбранную статью
+     */
+    Route::get('/article/{idArticle?}', 'MainController@article')
+           ->name('site.main.article');
 
     /*
-    * редактировать запись в блоге*/
-    Route::get('/edit/{id?}', 'MainController@edit');
+     * добавлять запись в блог
+     */
+    Route::get('/add', 'DBController@add')
+           ->name('site.db.add');
+    Route::post('/add', 'DBController@addPost')
+           ->name('site.db.addPost');
 
     /*
-     * удалять запись*/
-    Route::get('/delete/{id?}', 'MainController@delete');
+     * редактировать запись в блоге
+     */
+    Route::get('/edit/{id?}', 'DBController@edit');
+
+    /*
+     * удалять запись
+     */
+    Route::get('/delete/{id?}', 'DBController@delete')
+           ->name('site.db.delete');
 });
 
+/*
+ * работа с новостями
+ */
 Route::group(['prefix'=>'news'], function (){
 
     Route::get('/', 'MainController@news')
            ->name('site.main.news');
 
+    /*Route::get('/', 'MainController@news')
+        ->name('site.main.news');*/
+
 });
 
-/*Route::get('/about', function () {
-    return view('layots.contacts', [
-        'title'=>' About'
-    ]);
-});*/
-
+/******************************************/
+/*
+ * роут страницы - обо мне-контакты
+ */
 Route::get('/about', 'MainController@about')
        ->name('site.main.about');
 
 /*-----------------------------------------*/
-
+/* роуты для регистрации, аутентификации и выхода из сайта */
 Route::get('/login', 'AuthController@login')
        ->name('site.auth.login');
 Route::post('/login', 'AuthController@loginPost')
@@ -64,10 +84,16 @@ Route::get('/register', 'AuthController@register')
 Route::post('/register', 'AuthController@registerPost')
        ->name('site.auth.registerPost');
 
+Route::get('/logout', 'AuthController@logout')
+    ->name('site.auth.logout');
 
-Route::get('/admin', 'DBController@getUsers')
-    ->name('site.DB.getUsers');
 
-/*Route::get('/admin', function () {
-    return view('admin');
-});*/
+
+/*
+ * админка
+ */
+Route::get('/admin', 'Admin'.DIRECTORY_SEPARATOR.'AdminController@admin')
+    ->name('admin.login');
+Route::post('/admin', 'Admin'.DIRECTORY_SEPARATOR.'AdminController@adminPost')
+    ->name('admin.loginPost');
+

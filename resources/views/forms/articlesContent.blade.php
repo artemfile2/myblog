@@ -1,14 +1,30 @@
-<h2 class="p3">Статьи</h2>
-<div class="wrap">
-    <p class="data-link">Дата 13.06.2017 12:31:10</p>
-    <p class="extra-wrap">Group is one of created by TemplateMonster.com. This website template is optimized for 1280X1024 screen resolution. This goes with 2 packages – with PSD source files and without them. PSD source files are available for free for the registered members of TemplateMonster.com.</p>
+<h2 class="p2">Статьи</h2>
+    @if ( Auth::check() )
+        <br>
+        <a href="{{ route('site.db.add') }}" class="button-2 top-3">Добавить</a>
+        <br><br>
+    @endif
 
-    <a href="#" class="button-1 top-3">Читать</a>
-</div>
+    @if (count($articles) > 0)
+        @foreach($articles as $article)
+            <div class="wrap line">
+                <p class="data-link">
+                    Дата {{ $article->created_at }}
+                </p>
+                <p class="title">
+                    {{ $article->title }}
+                </p>
+                <p class="extra-wrap">
+                    {{ $article->text }}
+                </p>
 
-<div class="wrap">
-    <p class="data-link">Дата 12.06.2017 11:18:52</p>
-    <p class="extra-wrap">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi error, et incidunt, nemo nobis perferendis possimus quia quibusdam quos sed sunt veritatis! Blanditiis enim eos eum incidunt voluptas voluptatem!</p>
-
-    <a href="#" class="button-1 top-3">Читать</a>
-</div>
+                <a href="articles/article/{{ $article->id }}" class="button-1 top-3">Читать</a>
+            </div>
+        @endforeach
+    @else
+        <div class="wrap line">
+            <p class="data-link">
+                Статей нет и не будет, но вы держитесь!!!
+            </p>
+        </div>
+    @endif
