@@ -31,7 +31,7 @@ class DBController extends Controller
     }
 
 
-    public function deletePost($idArticle)
+    public function delete($idArticle)
     {
         $article = Article::findOrFail($idArticle)
                    ->delete();

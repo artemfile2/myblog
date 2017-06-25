@@ -43,12 +43,13 @@ Route::group(['prefix'=>'articles'], function ()
     /*
      * редактировать запись в блоге
      */
-    Route::get('/edit/{id?}', 'MainController@edit');
+    Route::get('/edit/{id?}', 'DBController@edit');
 
     /*
      * удалять запись
      */
-    Route::get('/delete/{id?}', 'MainController@delete');
+    Route::get('/delete/{id?}', 'DBController@delete')
+           ->name('site.db.delete');
 });
 
 /*
@@ -65,11 +66,14 @@ Route::group(['prefix'=>'news'], function (){
 });
 
 /******************************************/
+/*
+ * роут страницы - обо мне-контакты
+ */
 Route::get('/about', 'MainController@about')
        ->name('site.main.about');
 
 /*-----------------------------------------*/
-
+/* роуты для регистрации, аутентификации и выхода из сайта */
 Route::get('/login', 'AuthController@login')
        ->name('site.auth.login');
 Route::post('/login', 'AuthController@loginPost')
@@ -85,7 +89,11 @@ Route::get('/logout', 'AuthController@logout')
 
 
 
-/* tests*/
-Route::get('/admin', 'DBController@getUsers')
-    ->name('site.DB.getUsers');
+/*
+ * админка
+ */
+Route::get('/admin', 'Admin'.DIRECTORY_SEPARATOR.'AdminController@admin')
+    ->name('admin.login');
+Route::post('/admin', 'Admin'.DIRECTORY_SEPARATOR.'AdminController@adminPost')
+    ->name('admin.loginPost');
 
