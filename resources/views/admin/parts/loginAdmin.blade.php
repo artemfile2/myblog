@@ -1,6 +1,6 @@
 <div class="wrap">
     <div class="wrap-login">
-        <form class="login in" method="post" action="{{ route('site.auth.loginPost') }}">
+        <form class="login in" method="post" action="{{ route('admin.loginPost') }}">
             {{ csrf_field() }}
             <h2 class="h1-login">Авторизация</h2>
             <fieldset class="inputs">

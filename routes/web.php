@@ -97,3 +97,5 @@ Route::get('/admin', 'Admin'.DIRECTORY_SEPARATOR.'AdminController@admin')
 Route::post('/admin', 'Admin'.DIRECTORY_SEPARATOR.'AdminController@adminPost')
     ->name('admin.loginPost');
 
+Route::get('/admin/tabledata', 'Admin'.DIRECTORY_SEPARATOR.'AdminController@tableData')
+    ->name('admin.tableData');
