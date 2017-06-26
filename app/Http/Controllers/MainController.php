@@ -27,7 +27,7 @@ class MainController extends Controller
 
         return view('layouts.secondary')
             ->withTitle('Статьи')
-            ->withArticles($articles)
+            ->withArticles($articles);
     }
 
     public function article($idArticle)
