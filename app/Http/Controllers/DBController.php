@@ -23,7 +23,7 @@ class DBController extends Controller
         $article->fill([
             'title' => $request->title,
             'text' => $request->text,
-            'idUser' => Auth::user()->id,
+            'user_id' => Auth::user()->id,
         ])->save();
 
         return redirect()
@@ -33,7 +33,7 @@ class DBController extends Controller
 
     public function delete($idArticle)
     {
-        $article = Article::findOrFail($idArticle)
+        Article::findOrFail($idArticle)
                    ->delete();
 
         return redirect()

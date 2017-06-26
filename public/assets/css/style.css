@@ -38,6 +38,7 @@ a.link-2:hover {text-decoration:underline;}
 .color-3 { color:#e88800;}
 
 h2 { font-size:35px; line-height:45px; color:#1f1919; font-weight:normal; letter-spacing:-2px;}
+h3 { font-size:25px; line-height:45px; color: #80838f; font-weight:normal; letter-spacing:-2px;}
 
 ul {margin:0; padding:0;list-style-image:none;}
 ul.list-1 li {padding:0px 0 8px 14px; line-height:22px; background:url(../images/list-1.gif) 0 9px no-repeat;}
@@ -62,6 +63,13 @@ ul.list-2 li a:hover {text-decoration:underline;}
 	overflow:hidden;
 	color: #8f8b8c;
 	font-size: large;
+}
+
+.extra-wrap-commit {
+	color: #8f8b8c;
+	font-size: large;
+	border: 2px solid #8f8b8c;
+	margin: 0 0 20px 150px;
 }
 
 .fleft {float:left;}

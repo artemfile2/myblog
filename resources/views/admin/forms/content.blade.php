@@ -12,11 +12,17 @@
         </tr>
 
         @if (count($articles) > 0)
+            {{ dump($articles) }}
+            <br>
+            {{ dump($usernames) }}
             @foreach($articles as $article)
                 <tr>
                     <td>{{ $article->id }}</td>
                     <td>{{ $article->title }}</td>
-                    <td>{{ $article->idUser }}</td>
+                    <td>
+                        {{ $article->user_id }}
+                        {{-- $usernames->articles->name --}}
+                    </td>
                     <td>{{ $article->created_at }}</td>
                     <td>{{ $article->updated_at }}</td>
                     <td>{{ $article->deleted_at }}</td>

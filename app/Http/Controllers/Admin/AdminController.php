@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Article;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -37,10 +38,12 @@ class AdminController extends Controller
         $articles = Article::withTrashed()
                    ->get();
 
+        $userNames = User::find(1)->articles;
 
         return view('admin.parts.contentAdmin', [
             'title' => 'Таблица статей',
             'articles' => $articles,
+            'usernames' => $userNames,
         ]);
     }
 
