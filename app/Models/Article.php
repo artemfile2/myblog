@@ -14,4 +14,10 @@ class Article extends Model
     protected $fillable = ['title', 'text', 'idUser'];
     protected $dates = ['deleted_at'];
 
+    public function users()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+
 }

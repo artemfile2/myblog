@@ -6,10 +6,10 @@
                     <a href="{{ route('site.main.index') }}">На сайт</a>
                 </li>
                 <li class="{{Request::path()=='news' ? 'active' : ''}}">
-                    <a href="{{ route('site.main.news') }}">Пользователи</a>
+                    <a href="">Пользователи</a>
                 </li>
                 <li class="{{Request::path()=='articles' ? 'active' : ''}}">
-                    <a href="{{ route('site.main.articles') }}">Статьи</a>
+                    <a href="">Статьи</a>
                 </li>
 
                 <li class="{{Request::path()=='login' ? 'active' : ''}}">
