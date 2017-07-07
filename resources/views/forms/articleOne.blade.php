@@ -2,10 +2,13 @@
 
         <div class="wrap line">
             <p class="data-link">
-                Дата {{ $article->created_at }}
+                Дата {{ date('d.m.Y', strtotime($article->created_at)) }}
+            </p>
+            <p class="extra-wrap">
+                Автор {{ $article->text }}
             </p>
             <p class="title">
-                {{ $article->title }}
+                Заголовок {{ $article->title }}
             </p>
             <p class="extra-wrap">
                 {{ $article->text }}
@@ -42,6 +45,7 @@
                     <fieldset class="actions">
                         <button class="submit in" type="submit">Отправить</button>
                     </fieldset>
+                </form>>
             </div>
             <br><br>
             <a href="{{ route('site.main.articles') }}" class="button-1 top-3">Назад</a>
