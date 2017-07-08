@@ -14,7 +14,7 @@ class HelpersServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        include app_path('helpers/formateDate.php');
+        include app_path('helpers/formatDate.php');
     }
 
     /**

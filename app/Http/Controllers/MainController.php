@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\News;
+use Barryvdh\Debugbar\Twig\Extension\Dump;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {   //
@@ -32,7 +34,9 @@ class MainController extends Controller
 
     public function article($idArticle)
     {
-        $article = Article::findOrFail($idArticle);
+        $article = Article::leftjoin('users', 'articles.user_id', 'users.id')
+            ->first(['title', 'text', 'articles.created_at', 'name'])
+            ->findOrFail($idArticle);
 
         return view('layouts.article', [
             'title' => 'Статья '. $article->title,

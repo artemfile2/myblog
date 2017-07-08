@@ -1,14 +1,14 @@
 <h2 class="p2">Статья</h2>
 
-        <div class="wrap line">
+    <div class="wrap line">
             <p class="data-link">
-                Дата {{ date('d.m.Y', strtotime($article->created_at)) }}
+                Дата: {{ formatDate(3, $article->created_at) }}
             </p>
             <p class="extra-wrap">
-                Автор {{ $article->text }}
+                Автор: {{ $article->name }}
             </p>
             <p class="title">
-                Заголовок {{ $article->title }}
+                Тема: {{ $article->title }}
             </p>
             <p class="extra-wrap">
                 {{ $article->text }}
@@ -25,6 +25,10 @@
                     {{ $article->created_at }}
                     <br>
                     {{ $article->text }}
+                    <br>
+                    @if ( Auth::check() )
+                        <a href="#" class="button-2 top-3">Ответить</a>
+                    @endif
                 </p>
                 <p class="extra-wrap-commit">
                     {{ $article->created_at }}
@@ -45,7 +49,7 @@
                     <fieldset class="actions">
                         <button class="submit in" type="submit">Отправить</button>
                     </fieldset>
-                </form>>
+                </form>
             </div>
             <br><br>
             <a href="{{ route('site.main.articles') }}" class="button-1 top-3">Назад</a>

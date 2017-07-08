@@ -1,6 +1,6 @@
     <footer>
         <p>
-            © 1900 - {{ formateDate(1) }}
+            © 1900 - {{ formatDate(1) }}
             <a href="/" class="link">ArtemBlog test!!!</a>
             by
             <a class="link" href="/" title="шаблоны сайта" rel="nofollow">шаблон сайта</a>
