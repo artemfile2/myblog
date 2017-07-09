@@ -18,13 +18,9 @@ class DBController extends Controller
 
     public function addPost(Request $request)
     {
-        $article = new Article;
-
-        $article->fill([
-            'title' => $request->title,
-            'text' => $request->text,
-            'user_id' => Auth::user()->id,
-        ])->save();
+        $requestAll = $request->all();
+        $requestAll['user_id'] = Auth::user()->id;
+        Article::create($requestAll);
 
         return redirect()
                ->route('site.main.articles');

@@ -2,7 +2,7 @@
 
     <div class="wrap line">
             <p class="data-link">
-                Дата: {{ formatDate(3, $article->created_at) }}
+                Дата: {{ formatDate(2, $article->created_at) }}
             </p>
             <p class="extra-wrap">
                 Автор: {{ $article->name }}
@@ -21,20 +21,19 @@
             <br><br>
             <h3>Коментарии</h3>
 
-                <p class="extra-wrap-commit">
-                    {{ $article->created_at }}
+                @foreach($comments as $comm)
+                <div class="extra-wrap-commit">
+                    <p>Дата коментария: {{ formatDate(4, $comm->created_at) }}</p>
                     <br>
-                    {{ $article->text }}
+                    <p>Пользователь {{ $comm->name }}</p>
+                    <br>
+                    <p>{{ $comm->comment }}</p>
                     <br>
                     @if ( Auth::check() )
                         <a href="#" class="button-2 top-3">Ответить</a>
                     @endif
-                </p>
-                <p class="extra-wrap-commit">
-                    {{ $article->created_at }}
-                    <br>
-                    {{ $article->text }}
-                </p>
+                </div>
+                @endforeach
 
             <br><br>
 

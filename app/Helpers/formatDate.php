@@ -39,6 +39,23 @@ use Carbon\Carbon;
 
             return date($format, strtotime($current_date));
         }
+        elseif ($value === 4)
+        {
+            $format = 'd.m.Y H:i:s';
+
+            if (is_null($inputdate))
+            {
+                return "-";
+            }
+            else
+            {
+                return date($format,
+                            strtotime(
+                                Carbon::parse($inputdate)->format('d.m.Y H:i:s')
+                                     )
+                            );
+            }
+        }
         else
         {
             $inputdate = is_null($inputdate)
