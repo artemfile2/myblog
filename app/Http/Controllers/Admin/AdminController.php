@@ -35,15 +35,13 @@ class AdminController extends Controller
 
     public function tableData()
     {
-        $articles = Article::withTrashed()
-                   ->get();
-
-        $userNames = User::find(1)->articles;
+        $articles = Article::leftjoin('users', 'articles.user_id', 'users.id')
+                    ->withTrashed()
+                    ->get();
 
         return view('admin.parts.contentAdmin', [
             'title' => 'Таблица статей',
             'articles' => $articles,
-            'usernames' => $userNames,
         ]);
     }
 

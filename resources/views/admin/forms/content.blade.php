@@ -12,20 +12,16 @@
         </tr>
 
         @if (count($articles) > 0)
-            {{ dump($articles) }}
-            <br>
-            {{ dump($usernames) }}
             @foreach($articles as $article)
                 <tr>
                     <td>{{ $article->id }}</td>
                     <td>{{ $article->title }}</td>
                     <td>
-                        {{ $article->user_id }}
-                        {{-- $usernames->articles->name --}}
+                        {{ $article->name }}
                     </td>
-                    <td>{{ $article->created_at }}</td>
-                    <td>{{ $article->updated_at }}</td>
-                    <td>{{ $article->deleted_at }}</td>
+                    <td>{{ formatDate(4, $article->created_at) }}</td>
+                    <td>{{ formatDate(4, $article->updated_at) }}</td>
+                    <td>{{ formatDate(4, $article->deleted_at) }}</td>
                     <td>
                         <a href="#" class="top-3">Редактировать</a>
                         <br>

@@ -40,15 +40,6 @@ a.link-2:hover {text-decoration:underline;}
 h2 { font-size:35px; line-height:45px; color:#1f1919; font-weight:normal; letter-spacing:-2px;}
 h3 { font-size:25px; line-height:45px; color: #80838f; font-weight:normal; letter-spacing:-2px;}
 
-ul {margin:0; padding:0;list-style-image:none;}
-ul.list-1 li {padding:0px 0 8px 14px; line-height:22px; background:url(../images/list-1.gif) 0 9px no-repeat;}
-ul.list-1 li a { font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#8f8b8c; line-height:22px;}
-ul.list-1 li a:hover {color:#e88800;}
-
-ul.list-2 li {padding:0px 0 8px 14px; line-height:22px; background:url(../images/list-1.gif) 0 9px no-repeat;}
-ul.list-2 li a { font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#e88800; line-height:22px;}
-ul.list-2 li a:hover {text-decoration:underline;}
-
 /******************************************************************/
 .clear {clear:both; line-height:0; font-size:0; width:100%;}
 .wrapper {width:100%; overflow:hidden; position:relative}
@@ -70,6 +61,7 @@ ul.list-2 li a:hover {text-decoration:underline;}
 	font-size: large;
 	border: 2px solid #8f8b8c;
 	margin: 0 0 20px 150px;
+	padding: 10px 10px 10px 50px;
 }
 
 .fleft {float:left;}
@@ -80,10 +72,7 @@ ul.list-2 li a:hover {text-decoration:underline;}
 .top-1 {margin-top:10px;}
 .top-2 {margin-top:18px;}
 .top-3 {margin-top:10px;}
-.top-4 {margin-top:60px;}
-.top-5 {margin-top:37px;}
-.top-6 {margin-top:17px;}
-.top-7 {margin-top:4px;}
+
 
 .bot-0 {padding-bottom:0 !important; margin-bottom:0 !important;}
 
@@ -122,8 +111,6 @@ ul.menu li:last-child {float: right}
 .title{
 	color: #4e4e4e;
 	font-size: x-large;
-	border-bottom: 1px solid #8f5720;
-	float: right;
 	margin-right: 20px;
 }
 
@@ -182,7 +169,7 @@ blockquote {color:#e88800; padding-left:15px; display:inline-block;}
 
 /****************************footer************************/
 footer {
-	width:880px;
+	width:auto;
 	margin:0 auto;
 	position:relative;
 	overflow:hidden;

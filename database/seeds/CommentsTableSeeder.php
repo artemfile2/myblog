@@ -17,5 +17,13 @@ class CommentsTableSeeder extends Seeder
             'comment' => 'Текст коментария 1',
             'created_at' => date('Y.m.d H:i:s'),
         ]);
+
+        DB::table('comments')->insert([
+            'article_id' => 1,
+            'user_id' => 2,
+            'comment' => 'Коментарий 2',
+            'comment_id' => 1,
+            'created_at' => date('Y.m.d H:i:s'),
+        ]);
     }
 }

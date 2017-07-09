@@ -11,13 +11,13 @@ class Article extends Model
 
     use SoftDeletes;
 
-    protected $fillable = ['title', 'text', 'idUser'];
+    protected $fillable = ['title', 'text', 'user_id'];
     protected $dates = ['deleted_at'];
 
-    public function users()
+    /*public function users()
     {
         return $this->belongsTo('App\User');
-    }
+    }*/
 
 
 }

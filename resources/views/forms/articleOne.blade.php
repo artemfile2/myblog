@@ -1,11 +1,14 @@
 <h2 class="p2">Статья</h2>
 
-        <div class="wrap line">
+    <div class="wrap line">
             <p class="data-link">
-                Дата {{ $article->created_at }}
+                Дата: {{ formatDate(2, $article->created_at) }}
+            </p>
+            <p class="extra-wrap">
+                Автор: {{ $article->name }}
             </p>
             <p class="title">
-                {{ $article->title }}
+                Тема: {{ $article->title }}
             </p>
             <p class="extra-wrap">
                 {{ $article->text }}
@@ -18,16 +21,19 @@
             <br><br>
             <h3>Коментарии</h3>
 
-                <p class="extra-wrap-commit">
-                    {{ $article->created_at }}
+                @foreach($comments as $comm)
+                <div class="extra-wrap-commit">
+                    <p>Дата коментария: {{ formatDate(4, $comm->created_at) }}</p>
                     <br>
-                    {{ $article->text }}
-                </p>
-                <p class="extra-wrap-commit">
-                    {{ $article->created_at }}
+                    <p>Пользователь {{ $comm->name }}</p>
                     <br>
-                    {{ $article->text }}
-                </p>
+                    <p>{{ $comm->comment }}</p>
+                    <br>
+                    @if ( Auth::check() )
+                        <a href="#" class="button-2 top-3">Ответить</a>
+                    @endif
+                </div>
+                @endforeach
 
             <br><br>
 
@@ -42,6 +48,7 @@
                     <fieldset class="actions">
                         <button class="submit in" type="submit">Отправить</button>
                     </fieldset>
+                </form>
             </div>
             <br><br>
             <a href="{{ route('site.main.articles') }}" class="button-1 top-3">Назад</a>

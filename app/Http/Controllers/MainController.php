@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Comment;
 use App\Models\News;
+use Barryvdh\Debugbar\Twig\Extension\Dump;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {   //
@@ -32,11 +35,36 @@ class MainController extends Controller
 
     public function article($idArticle)
     {
-        $article = Article::findOrFail($idArticle);
+        $article = Article::leftjoin('users', 'articles.user_id', 'users.id')
+            ->first(['title', 'text', 'articles.created_at', 'name'])
+            ->findOrFail($idArticle);
+
+        if (!$article)
+        {
+            abort(404);
+        }
+
+        $comments = Comment::leftjoin('users',
+                    'comments.user_id',
+                    'users.id')
+                ->select('comments.comment',
+                    'comments.created_at',
+                    'users.created_at AS created_user',
+                    'users.name')
+                ->where('article_id', $idArticle)
+                ->get();
+
+        dump($comments);
+
+        foreach ($comments as $comm)
+        {
+            dump($comm->comment .'-'.$comm->name .'-'. $comm->created_at);
+        }
 
         return view('layouts.article', [
             'title' => 'Статья '. $article->title,
             'article' => $article,
+            'comments' => $comments,
         ]);
     }
 
