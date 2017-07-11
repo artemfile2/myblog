@@ -35,9 +35,16 @@ class MainController extends Controller
 
     public function article($idArticle)
     {
-        $article = Article::leftjoin('users', 'articles.user_id', 'users.id')
-            ->first(['title', 'text', 'articles.created_at', 'name'])
+        $article = Article::leftjoin('users',
+            'articles.user_id',
+            'users.id')
+            ->select('articles.title',
+                'articles.text',
+                'articles.created_at',
+                'users.created_at AS created_user',
+                'users.name')
             ->findOrFail($idArticle);
+
 
         if (!$article)
         {
@@ -53,13 +60,6 @@ class MainController extends Controller
                     'users.name')
                 ->where('article_id', $idArticle)
                 ->get();
-
-        dump($comments);
-
-        foreach ($comments as $comm)
-        {
-            dump($comm->comment .'-'.$comm->name .'-'. $comm->created_at);
-        }
 
         return view('layouts.article', [
             'title' => 'Статья '. $article->title,

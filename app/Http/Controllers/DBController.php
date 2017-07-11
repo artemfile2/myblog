@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class DBController extends Controller
 {
 
     public function add()
     {
-        return view('layouts.adding', [
-            'title' => 'Добавить новую статью'
-        ]);
+        if (Gate::allows('add-post')) {
+            return view('layouts.adding', [
+                'title' => 'Добавить новую статью'
+            ]);
+        }
+
+        abort(403);
     }
 
     public function addPost(Request $request)
