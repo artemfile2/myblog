@@ -16,7 +16,10 @@
 
             @if ( Auth::check() )
                 <a href="#" class="button-2 top-3">Редактировать</a>
-                <a href="{{ route('site.db.delete') .'/'. $article->id }}" class="button-2 top-3">Удалить</a>
+                <a
+                   href="{{ route('site.db.delete') .'/'. $article->id }}"
+                   class="button-2 top-3">Удалить
+                </a>
             @endif
             <br><br>
             <h3>Коментарии</h3>
