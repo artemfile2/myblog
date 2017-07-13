@@ -12,13 +12,13 @@ class DBController extends Controller
 
     public function add()
     {
-        if (Gate::allows('add-post')) {
+//        if (Gate::allows('add-post')) {
             return view('layouts.adding', [
                 'title' => 'Добавить новую статью'
             ]);
-        }
+//        }
 
-        abort(403);
+//        abort(403);
     }
 
     public function addPost(Request $request)
